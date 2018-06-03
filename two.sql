@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 13 Mai 2018 à 22:17
+-- Généré le :  Dim 03 Juin 2018 à 22:00
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -84,6 +84,15 @@ CREATE TABLE `cart_items` (
   `id_cart` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `cart_items`
+--
+
+INSERT INTO `cart_items` (`quantities`, `id_product`, `id_cart`) VALUES
+(1, 10, 1),
+(2, 12, 1),
+(3, 14, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -155,7 +164,17 @@ INSERT INTO `images` (`id_image`, `file`, `id_product`) VALUES
 (3, 'pexels-photo-105254.jpeg', 2),
 (4, 'pexels-photo-272056.jpeg', 3),
 (5, 'still-life-teddy-white-read-159080.jpeg', 3),
-(6, 'lorenzo-jorge-moto-gp-motorcycle.jpg', 4);
+(6, 'lorenzo-jorge-moto-gp-motorcycle.jpg', 4),
+(7, 'home1.jpeg', 5),
+(8, 'home2.jpeg', 6),
+(9, 'home3.jpeg', 7),
+(10, 'pexels-photo-844874.jpeg', 8),
+(11, 'pexels-photo-977296.jpeg', 9),
+(12, 'technology-music-sound-things.jpg', 10),
+(14, 'headphones-instagram-video-games-razer-159472.jpeg', 12),
+(15, 'pexels-photo-221185.jpeg', 13),
+(16, 'pexels-photo-264635.jpeg', 14),
+(20, 'rabbit-palm-hand-snatch-53966.jpeg', 16);
 
 -- --------------------------------------------------------
 
@@ -199,18 +218,29 @@ CREATE TABLE `products` (
   `description` text,
   `state` varchar(25) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_category` int(11) NOT NULL
+  `id_category` int(11) NOT NULL,
+  `product_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `products`
 --
 
-INSERT INTO `products` (`id_product`, `name`, `quantities`, `price`, `description`, `state`, `id_user`, `id_category`) VALUES
-(1, 'Nike', 50, '65', '', 'on', 1, 8),
-(2, 'Iphone SE', 15, '550', '', 'on', 1, 3),
-(3, 'Peluche', 50, '21', '', 'on', 1, 9),
-(4, 'Moto', 1, '980', '', 'on', 1, 11);
+INSERT INTO `products` (`id_product`, `name`, `quantities`, `price`, `description`, `state`, `id_user`, `id_category`, `product_date`) VALUES
+(1, 'Nike', 50, '65', '', 'on', 1, 8, '2018-05-16'),
+(2, 'Iphone SE', 15, '550', '', 'on', 1, 3, '2018-05-16'),
+(3, 'Peluche', 50, '21', '', 'on', 1, 9, '2018-05-16'),
+(4, 'Moto', 1, '980', '', 'on', 1, 11, '2018-05-16'),
+(5, 'Culprit Appare', 55, '36', '', 'on', 1, 1, '2018-05-16'),
+(6, 'Echarpe gris', 82, '15', 'Tien vraiment tr&egrave;s chaud', 'on', 1, 1, '2018-05-16'),
+(7, 'Wild$lope', 22, '30', '', 'on', 1, 1, '2018-05-16'),
+(8, 'Aspirateur', 12, '70', '', 'on', 1, 12, '2018-05-16'),
+(9, 'Alexa', 55, '170', '', 'on', 1, 5, '2018-05-26'),
+(10, 'Casque audio', 6, '232', 'Super son', 'on', 1, 5, '2018-05-16'),
+(12, 'Casque razer', 9, '256', '', 'on', 1, 5, '2018-06-01'),
+(13, 'Tablet', 6, '620', '', 'on', 1, 4, '2018-05-16'),
+(14, 'Livre aléatoire', 56, '15', 'Totalement al&eacute;atoire', 'on', 1, 10, '0000-00-00'),
+(16, 'Lapin', 3, '35', '', 'off', 1, 10, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -350,7 +380,7 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT pour la table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT pour la table `orders`
 --
@@ -365,7 +395,7 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
